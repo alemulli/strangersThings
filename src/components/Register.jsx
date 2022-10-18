@@ -1,11 +1,15 @@
-import React,{useState} from "react"
+import React, {useState} from "react"
 
 
 
 const Register = () => {
-const [newUser,setNewUser] = useState(null)
+const [newUsername, setNewUsername] = {}
+const [newPassword, setNewPassword] = {}
 
 
+
+const clickRegister = (event) => {
+  event.preventDefault();
 fetch('https://strangers-things.herokuapp.com/api/2209-FTB-ET-WEB-FT/users/register', {
  
   method: "POST",
@@ -14,8 +18,8 @@ fetch('https://strangers-things.herokuapp.com/api/2209-FTB-ET-WEB-FT/users/regis
   },
   body: JSON.stringify({
     user: {
-      username: "batman34",
-      password: 'theDarkestKnight'
+      username: state.newUsername,
+      password: state.newPassword
     }
   })
 }).then(response => response.json())
@@ -23,16 +27,25 @@ fetch('https://strangers-things.herokuapp.com/api/2209-FTB-ET-WEB-FT/users/regis
     console.log(result);
   })
   .catch(console.error);
+}
 
   return <form>
-    <label>
+    <label for='username'>
     Username:
     </label>
-    <input type="text" id="name" name="name" placeholder="Username Here"></input>
+    <input type="text" id="username" name="username" placeholder="Username Here" onChange={setNewUsername} />
+    <label for='password'> Password:
+    </label>
+    <input type='password' id='password' name='password' placeholder="Password Here" onChange={setNewPassword} />
+    <button type='submit' onClick={clickRegister}> Submit </button>
     
   </form>
 
-
 }
+
+
+
+
+
 
 export default Register;

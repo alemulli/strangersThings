@@ -1,5 +1,5 @@
 import React from "react";
-import Register from "./Register";
+import { NavLink } from 'react-router-dom';
 
 // import  {
 //   storeCurrentUser,
@@ -20,9 +20,9 @@ const Navbar = (
   return (
     <div id="navbar">
         <h2>Stranger's Things</h2>
-        <Register />
-        <button> Sign Up </button>
-        <button> Login </button>
+        <NavLink to ="/register"><button>Sign Up</button></NavLink>
+        <NavLink to ="/login"><button>Login</button></NavLink>
+        <NavLink to ="/posts"><button>Posts</button></NavLink>
 
   </div>
   );

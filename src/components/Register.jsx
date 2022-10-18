@@ -1,51 +1,40 @@
-import React, {useState} from "react"
+import React from "react"
+import {RegisterUser} from "../api"
 
 
-
-const Register = () => {
-const [newUsername, setNewUsername] = {}
-const [newPassword, setNewPassword] = {}
-
-
-
-const clickRegister = (event) => {
-  event.preventDefault();
-fetch('https://strangers-things.herokuapp.com/api/2209-FTB-ET-WEB-FT/users/register', {
- 
-  method: "POST",
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    user: {
-      username: state.newUsername,
-      password: state.newPassword
-    }
-  })
-}).then(response => response.json())
-  .then(result => {
-    console.log(result);
-  })
-  .catch(console.error);
-}
-
-  return <form>
-    <label for='username'>
-    Username:
-    </label>
-    <input type="text" id="username" name="username" placeholder="Username Here" onChange={setNewUsername} />
-    <label for='password'> Password:
-    </label>
-    <input type='password' id='password' name='password' placeholder="Password Here" onChange={setNewPassword} />
-    <button type='submit' onClick={clickRegister}> Submit </button>
+const Register = (props) => {
+   async function handleSubmit(event){
+        event.preventDefault()
+        const username = event.target[0].value
+        const password = event.target[1].value
+        const confirmedPassword = event.target[2].value
+        if (password === confirmedPassword) {
+            const registeredUser = await RegisterUser(username,password)
+            const token = registeredUser.token
+            console.log(token)
+            localStorage.removeItem('token')
+            localStorage.setItem('token',token)
+        } else {
+            alert("Passwords do not match!")
+        }
     
-  </form>
+    }
+
+return ( 
+    <div className="box">
+        <form onSubmit={handleSubmit}>
+            <label htmlFor="username">Username: </label>
+            <input id="username" type='text' required />
+            <label htmlFor="password">Password: </label>
+            <input id="password" type='password' required />
+            <label htmlFor="Confirm password">Confirm Password: </label>
+            <input id="Confirm password" type='password' required />
+            <button type="submit"> Submit </button>
+        </form>
+    </div>
+)
+
 
 }
-
-
-
-
-
 
 export default Register;

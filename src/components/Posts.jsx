@@ -16,6 +16,7 @@ const Posts = (props) => {
                             <p> Location: {post.location}</p>
                 </div>
             )
+            
         })}
 
   </div>

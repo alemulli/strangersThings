@@ -5,11 +5,11 @@ import {
   Route,
   Routes,
   Switch,
-  Redirect,
+  redirect,
 } from "react-router-dom";
 
 const Main = () => {
-  const [currentUser, setCurrentUser] = useState()
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [getPosts, setGetPosts] = useState([])
 
   useEffect(()=>{
@@ -25,14 +25,13 @@ const Main = () => {
   return (
     <Router>
       <div id="main">
-        <Navbar />
-        {/* {currentUser ? ( */}
+        <Navbar setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn}/>
           <>
           <Routes>
             <Route path="/register" element={<Register />} />
             <Route path="/Posts" element={<Posts getPosts={ getPosts } setGetPosts={ setGetPosts } />} />
             <Route exact path='/' element={<Posts getPosts={ getPosts } setGetPosts={ setGetPosts } />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn}/>} />
           </Routes>
           </>
       </div>

@@ -9,6 +9,7 @@ const Main = () => {
     const fetchData = async () => {
       const data = await fetchPosts();
       setGetPosts(data);
+      console.log(data)
     }
     fetchData();
   }, []);

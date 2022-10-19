@@ -9,7 +9,6 @@ const Navbar = (props) => {
 
   function logout() {
 
-    console.log("logged out!")
     localStorage.removeItem("token")
     props.setIsLoggedIn(false)
     props.setCurrentUser(false)

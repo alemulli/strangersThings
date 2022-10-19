@@ -30,7 +30,6 @@ const Posts = (props) => {
             getPosts.map((post, index) => {
                 return(currentUser && currentUser.data.username === post.author.username ? 
                 <div className='onePost' key={`post-${index}`}>
-                   {console.log(post._id)}
                     <h2>{post.title}</h2>
                     <p>{post.description}</p>
                     <p>Price: {post.price}</p>

@@ -8,8 +8,6 @@ const setGetPosts = props.setGetPosts
 
     async function handleSubmit(e){
         e.preventDefault();
-
-        console.log(e)
         const title = e.target[0].value
         const description = e.target[1].value
         const price = e.target[2].value

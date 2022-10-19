@@ -2,8 +2,9 @@ import react,{ useEffect}from "react";
 import {newPost} from '../api'
 import {useNavigate} from 'react-router-dom';
 
-const NewPost = () => {
+const NewPost = (props) => {
 const navigate = useNavigate()
+const setGetPosts = props.setGetPosts
 
     async function handleSubmit(e){
         e.preventDefault();
@@ -15,6 +16,7 @@ const navigate = useNavigate()
         const location = e.target[3].value
         const willDeliver = e.target[4].checked
         const makeNewPost = await newPost(title,description,price,location,willDeliver)
+
 
         navigate("/Posts")
 

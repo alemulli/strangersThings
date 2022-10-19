@@ -35,7 +35,7 @@ async function getCurrentUser () {
       setGetPosts(data);
     }
     fetchData();
-  }, []);
+  }, [getPosts]);
   
 
 
@@ -46,9 +46,9 @@ async function getCurrentUser () {
           <>
           <Routes>
             <Route path="/register" element={<Register />} />
-            <Route path="/newPost" element={<NewPost />} />
+            <Route path="/newPost" element={<NewPost setGetPosts={setGetPosts}/>} />
             <Route path="/Posts" element={<Posts currentUser={currentUser} getPosts={ getPosts } setGetPosts={setGetPosts} />} />
-            <Route exact path='/' element={<Posts getPosts={ getPosts }  />} />
+            <Route exact path='/' element={<Posts currentUser={currentUser} getPosts={ getPosts } setGetPosts={setGetPosts} />} />
             <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
           </Routes>
           </>

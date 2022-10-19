@@ -78,3 +78,26 @@ export async function isLoggedIn(username,password){
     return result.data
 
 }
+
+
+export async function newPost(title,description,price,willDeliver){
+    const options = {
+        method:"POST",
+        headers: {
+            "Content-Type":"application/json",
+             "Authorization": `Bearer ${localStorage.getItem('token')}`
+        },body: JSON.stringify({
+            post: {
+                title,
+                description,
+                price,
+                willDeliver
+            }
+        })
+    }
+
+    const response = await fetch (`${BASE_URl}/api/${COHORT}/posts`,options)
+    const result = await response.json()
+    return result.data
+
+}

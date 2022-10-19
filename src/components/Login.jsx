@@ -16,7 +16,7 @@ const Login = (props) =>{
     props.setIsLoggedIn(token)
      console.log(props.isLoggedIn)
 
-    navigate("/Posts",)
+    navigate("/Posts")
 }
 
 return ( 

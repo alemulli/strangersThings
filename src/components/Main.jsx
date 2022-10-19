@@ -7,6 +7,7 @@ import {
   Switch,
   redirect,
 } from "react-router-dom";
+import NewPost from "./NewPost";
 
 const Main = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -36,6 +37,7 @@ const Main = () => {
           <>
           <Routes>
             <Route path="/register" element={<Register />} />
+            <Route path="/newPost" element={<NewPost />} />
             <Route path="/Posts" element={<Posts getPosts={ getPosts } setGetPosts={ setGetPosts } />} />
             <Route exact path='/' element={<Posts getPosts={ getPosts } setGetPosts={ setGetPosts } />} />
             <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn}/>} />

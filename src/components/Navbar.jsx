@@ -7,13 +7,12 @@ const Navbar = (props) => {
   const navigate = useNavigate()
 
 
-  function logout(event) {
+  function logout() {
 
     console.log("logged out!")
     localStorage.removeItem("token")
     props.setIsLoggedIn(false)
     props.setCurrentUser(false)
-    // localStorage.clear()
  
     navigate("/Posts")
 

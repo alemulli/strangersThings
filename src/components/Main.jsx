@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Navbar, Register, fetchPosts, Posts, Login } from './'
+import { Navbar, Register, Posts, Login, NewPost } from './'
 import { 
   BrowserRouter as Router,
   Route,
   Routes,
-  Switch,
-  redirect,
 } from "react-router-dom";
-import NewPost from "./NewPost";
+import { fetchPosts } from "../api";
 
 const Main = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -38,9 +36,9 @@ const Main = () => {
           <Routes>
             <Route path="/register" element={<Register />} />
             <Route path="/newPost" element={<NewPost />} />
-            <Route path="/Posts" element={<Posts getPosts={ getPosts } setGetPosts={ setGetPosts } />} />
-            <Route exact path='/' element={<Posts getPosts={ getPosts } setGetPosts={ setGetPosts } />} />
-            <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn}/>} />
+            <Route path="/Posts" element={<Posts getPosts={ getPosts } />} />
+            <Route exact path='/' element={<Posts getPosts={ getPosts }  />} />
+            <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
           </Routes>
           </>
       </div>

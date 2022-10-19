@@ -1,6 +1,5 @@
 import React from "react";
 import { NavLink,useNavigate } from 'react-router-dom';
-import { isLoggedIn } from "../api";
 
 // import  {
 //   storeCurrentUser,
@@ -43,8 +42,6 @@ const Navbar = (props) => {
          </>
         }
        
-        
-
   </div>
   );
 };

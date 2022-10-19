@@ -81,7 +81,7 @@ export async function currentUserInfo(token){
     return result
 }
 
-//Post request for making a new post
+//Post request for making a new post//
 export async function newPost(title,description,price,location,willDeliver){
     const options = {
         method:"POST",
@@ -103,4 +103,19 @@ export async function newPost(title,description,price,location,willDeliver){
     const result = await response.json()
     return result.data
 
+}
+
+//delete request for deleting a post//
+export async function deletePost(postId){
+    fetch(`${BASE_URl}/api/${COHORT}/posts/${postId}`, {
+  method: "DELETE",
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${localStorage.getItem('token')}`
+  }
+}).then(response => response.json())
+  .then(result => {
+    console.log(result);
+  })
+  .catch(console.error);
 }

@@ -4,6 +4,10 @@ const Posts = (props) => {
     const getPosts = props.getPosts
     const currentUser= props.currentUser
  
+    async function handleDelete(){
+      console.log("This function should eventually delete the thing")
+    }
+    
     return (
         <div id="posts">
             {
@@ -15,7 +19,7 @@ const Posts = (props) => {
                     <p>Price: {post.price}</p>
                     <p>Seller: {post.author.username}</p>
                     <p>Location: {post.location}</p>
-                    <p>You are the seller of this listing!</p>
+                    <button onClick={handleDelete}>Delete Post</button>
                 </div> :
                  <div className='onePost' key={`post-${index}`}>
                     <h2>{post.title}</h2>

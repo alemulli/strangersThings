@@ -1,8 +1,9 @@
 import react,{ useEffect}from "react";
 import {newPost} from '../api'
+import {useNavigate} from 'react-router-dom';
 
 const NewPost = () => {
-
+const navigate = useNavigate()
 
     async function handleSubmit(e){
         e.preventDefault();
@@ -11,11 +12,11 @@ const NewPost = () => {
         const title = e.target[0].value
         const description = e.target[1].value
         const price = e.target[2].value
-        const willDeliver = e.target[3].checked
-        console.log(willDeliver)
-        const makeNewPost = await newPost(title,description,price,willDeliver)
+        const location = e.target[3].value
+        const willDeliver = e.target[4].checked
+        const makeNewPost = await newPost(title,description,price,location,willDeliver)
 
-        
+        navigate("/Posts")
 
     }
 
@@ -29,6 +30,8 @@ const NewPost = () => {
             <input id="description" type='text' required />
             <label htmlFor="price">Price: </label>
             <input id="price" type='text' required />
+            <label htmlFor="location">Location: </label>
+            <input id="location" type="text" />
             <label htmlFor="willDeliver">Will Deliver: </label>
             <input id="willDeliver" type='checkbox'/>
             <button type="submit">Submit</button>

@@ -9,8 +9,6 @@ export async function getPosts() {
     return posts
 }
 
-
-
 export async function RegisterUser(username,password){
     const options = {
         method:"POST",
@@ -80,7 +78,7 @@ export async function isLoggedIn(username,password){
 }
 
 
-export async function newPost(title,description,price,willDeliver){
+export async function newPost(title,description,price,location,willDeliver){
     const options = {
         method:"POST",
         headers: {
@@ -91,6 +89,7 @@ export async function newPost(title,description,price,willDeliver){
                 title,
                 description,
                 price,
+                location,
                 willDeliver
             }
         })

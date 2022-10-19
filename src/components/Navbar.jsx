@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink,redirect } from 'react-router-dom';
+import { NavLink,useNavigate } from 'react-router-dom';
 import { isLoggedIn } from "../api";
 
 // import  {
@@ -9,6 +9,7 @@ import { isLoggedIn } from "../api";
 
 const Navbar = (props) => {
 
+  const navigate = useNavigate()
 
 
   // const handleSubmit = (event) => {
@@ -16,10 +17,13 @@ const Navbar = (props) => {
   //   }  
 
   function logout(event) {
-  console.log("logged out!")
-  localStorage.removeItem("token")
-  props.setIsLoggedIn(false)
+
+    console.log("logged out!")
+    localStorage.removeItem("token")
+    props.setIsLoggedIn(false)
  
+    navigate("/Posts")
+
 }
 
 

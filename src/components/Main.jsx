@@ -9,9 +9,16 @@ import {
 } from "react-router-dom";
 
 const Main = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [getPosts, setGetPosts] = useState([])
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [getPosts, setGetPosts] = useState([]);
 
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem('token')
+    if (loggedInUser) {
+        setIsLoggedIn(loggedInUser)
+    }
+  })
+  
   useEffect(()=>{
     const fetchData = async () => {
       const data = await fetchPosts();

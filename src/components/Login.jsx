@@ -1,6 +1,6 @@
 import React from 'react';
 import { LogIn } from '../api';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, redirect } from 'react-router-dom';
 
 const Login = (props) =>{
  const navigate = useNavigate()
@@ -10,13 +10,13 @@ const Login = (props) =>{
     const username = event.target[0].value
     const password = event.target[1].value
     const loggedIn = await LogIn(username,password)
-    const token = loggedIn.token
+    const token = await loggedIn.token
     localStorage.removeItem('token')
     localStorage.setItem('token',token)
     props.setIsLoggedIn(token)
      console.log(props.isLoggedIn)
 
-    navigate("./Posts",{replace:true})
+    navigate("/Posts",)
 }
 
 return ( 

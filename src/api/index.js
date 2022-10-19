@@ -26,6 +26,11 @@ export async function RegisterUser(username,password){
 
     const response = await fetch (`${BASE_URl}/api/${COHORT}/users/register`,options)
     const result = await response.json()
+
+    if (result.error) {
+        alert("Account is already registered. Please log in.")
+    }
+
     return result.data
 
 }
@@ -42,9 +47,15 @@ export async function LogIn(username,password){
             }
         })
     }
+    
 
     const response = await fetch (`${BASE_URl}/api/${COHORT}/users/login`,options)
     const result = await response.json()
+
+    if (result.error) {
+        alert("Username not found. Please register a new account.")
+    }
+
     return result.data
 
 }

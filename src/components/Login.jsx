@@ -1,5 +1,5 @@
 import React from 'react';
-import { LogIn } from '../api';
+import { LogIn, currentUserInfo } from '../api';
 import { useNavigate } from 'react-router-dom';
 
 const Login = (props) =>{
@@ -14,6 +14,9 @@ const Login = (props) =>{
     localStorage.removeItem('token')
     localStorage.setItem('token',token)
     props.setIsLoggedIn(token)
+    
+    const currentUserData = await currentUserInfo(token)
+    await props.setCurrentUser(currentUserData)
 
     navigate("/Posts")
 }

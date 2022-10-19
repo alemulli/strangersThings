@@ -1,25 +1,18 @@
 import React from "react";
 import { NavLink,useNavigate } from 'react-router-dom';
 
-// import  {
-//   storeCurrentUser,
-//   clearCurrentUser
-// } from '../auth';
 
 const Navbar = (props) => {
 
   const navigate = useNavigate()
 
 
-  // const handleSubmit = (event) => {
-  //     event.preventDefault();
-  //   }  
-
   function logout(event) {
 
     console.log("logged out!")
     localStorage.removeItem("token")
     props.setIsLoggedIn(false)
+    props.setCurrentUser(false)
  
     navigate("/Posts")
 

@@ -1,6 +1,8 @@
 const BASE_URl = "https://strangers-things.herokuapp.com"
 const COHORT = "2209-FTB-ET-WEB-FT"
 
+//get request for fetching all posts//
+
 export async function fetchPosts() {
     try {
       const fetchedPosts = await fetch(
@@ -14,6 +16,7 @@ export async function fetchPosts() {
     }
   }
 
+  //post request for new user//
 export async function RegisterUser(username,password){
     const options = {
         method:"POST",
@@ -38,6 +41,7 @@ export async function RegisterUser(username,password){
 
 }
 
+//post request for logging in//
 export async function LogIn(username,password){
     const options = {
         method:"POST",
@@ -63,26 +67,41 @@ export async function LogIn(username,password){
 
 }
 
-export async function isLoggedIn(username,password){
+// unused function - we should delete//
+// export async function isLoggedIn(username,password){
+//     const options = {
+//         method:"POST",
+//         headers: {
+//             "Content-Type":"application/json",
+//             "Authorization": `Bearer ${localStorage.getItem('token',token)}`
+//         },
+//     }.then(response => response.json())
+//       .then(result => {
+//         console.log(result);
+//       })
+//       .catch(console.error);
+
+//     const response = await fetch (`${BASE_URl}/api/${COHORT}/users/me`,options)
+//     const result = await response.json()
+//     return result.data
+
+// }
+
+// get request for currently logged in user data//
+export async function currentUserInfo(token){
     const options = {
-        method:"POST",
         headers: {
             "Content-Type":"application/json",
-            "Authorization": `Bearer ${localStorage.getItem('token',token)}`
+            "Authorization": `Bearer ${localStorage.getItem('token')}`
         },
-    }.then(response => response.json())
-      .then(result => {
-        console.log(result);
-      })
-      .catch(console.error);
+    }
 
     const response = await fetch (`${BASE_URl}/api/${COHORT}/users/me`,options)
     const result = await response.json()
-    return result.data
-
+    return result
 }
 
-
+//Post request for making a new post
 export async function newPost(title,description,price,location,willDeliver){
     const options = {
         method:"POST",

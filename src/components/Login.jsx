@@ -17,6 +17,9 @@ const Login = (props) =>{
     
     const currentUserData = await currentUserInfo(token)
     await props.setCurrentUser(currentUserData)
+    // let userName = props.currentUser.data.username
+    // localStorage.setItem('username',`${userName}`)
+
 
     navigate("/Posts")
 }

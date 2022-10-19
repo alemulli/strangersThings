@@ -13,6 +13,7 @@ const Navbar = (props) => {
     localStorage.removeItem("token")
     props.setIsLoggedIn(false)
     props.setCurrentUser(false)
+    // localStorage.clear()
  
     navigate("/Posts")
 

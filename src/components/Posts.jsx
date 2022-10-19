@@ -16,9 +16,6 @@ const Posts = (props) => {
                     <p>Seller: {post.author.username}</p>
                     <p>Location: {post.location}</p>
                     <p>You are the seller of this listing!</p>
-                    {console.log(currentUser)}
-                    {console.log(post.author.username)}
-                    {console.log(post, "to test if isAuthor is true")}
                 </div> :
                  <div className='onePost' key={`post-${index}`}>
                     <h2>{post.title}</h2>
@@ -26,7 +23,6 @@ const Posts = (props) => {
                     <p>Price: {post.price}</p>
                     <p>Seller: {post.author.username}</p>
                     <p>Location: {post.location}</p>
-                   {console.log(post, "to test if isAuthor is true")}
                 </div>)
             })
         } </div>

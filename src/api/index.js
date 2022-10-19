@@ -67,26 +67,6 @@ export async function LogIn(username,password){
 
 }
 
-// unused function - we should delete//
-// export async function isLoggedIn(username,password){
-//     const options = {
-//         method:"POST",
-//         headers: {
-//             "Content-Type":"application/json",
-//             "Authorization": `Bearer ${localStorage.getItem('token',token)}`
-//         },
-//     }.then(response => response.json())
-//       .then(result => {
-//         console.log(result);
-//       })
-//       .catch(console.error);
-
-//     const response = await fetch (`${BASE_URl}/api/${COHORT}/users/me`,options)
-//     const result = await response.json()
-//     return result.data
-
-// }
-
 // get request for currently logged in user data//
 export async function currentUserInfo(token){
     const options = {

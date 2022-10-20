@@ -1,12 +1,10 @@
-import React from "react";
+import React,{useEffect} from "react";
 
 const UserHomePage = (props) => {
     const currentUser = props.currentUser
-
-
     return (
         <>
-        {props.isLoggedIn ?
+        {currentUser.data ?
         <>
         <h2>Welcome {`${currentUser.data.username}`}!</h2>
         <div className="messageBox">

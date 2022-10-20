@@ -11,6 +11,7 @@ const Main = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [getPosts, setGetPosts] = useState([]);
   const [currentUser, setCurrentUser] = useState(false)
+  const [singlePost,setSinglePost] = useState('')
 
 async function getCurrentUser () {
   if (isLoggedIn){
@@ -31,11 +32,12 @@ async function getCurrentUser () {
   
   useEffect(()=>{
     const fetchData = async () => {
-      const data = await fetchPosts();
+      const data = await fetchPosts(localStorage.getItem('token'));
+  
       setGetPosts(data);
     }
     fetchData();
-  }, [getPosts]);
+  }, []);
   
 
 
@@ -46,12 +48,12 @@ async function getCurrentUser () {
           <>
           <Routes>
             <Route path="/register" element={<Register />} />
-            <Route path="/newPost" element={<NewPost isLoggedIn={isLoggedIn} setGetPosts={setGetPosts}/>} />
-            <Route path="/Posts" element={<Posts isLoggedIn={isLoggedIn} currentUser={currentUser} getPosts={ getPosts } setGetPosts={setGetPosts} />} />
+            <Route path="/newPost" element={<NewPost isLoggedIn={isLoggedIn} getPosts={getPosts}setGetPosts={setGetPosts}/>} />
+            <Route path="/Posts" element={<Posts isLoggedIn={isLoggedIn} currentUser={currentUser} getPosts={ getPosts } setGetPosts={setGetPosts} setSinglePost={setSinglePost}/>} />
             <Route exact path='/' element={<Posts currentUser={currentUser} getPosts={ getPosts } setGetPosts={setGetPosts} />} />
             <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
-            <Route path="/sendMessage" element = {<SendMessage isLoggedIn={isLoggedIn}/>} />
-            <Route path="/userHomePage" element = {<UserHomePage currentUser={currentUser} isLoggedIn={isLoggedIn}/>}/>
+            <Route path="/sendMessage" element = {<SendMessage isLoggedIn={isLoggedIn} singlePost={singlePost}/>} />
+            <Route path="/userHomePage" element = {<UserHomePage currentUser={currentUser} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} getCurrentUser={getCurrentUser}/>}/>
           </Routes>
           </>
       </div>

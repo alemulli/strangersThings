@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 const BASE_URl = "https://strangers-things.herokuapp.com"
@@ -7,7 +7,9 @@ const COHORT = "2209-FTB-ET-WEB-FT"
 const Posts = (props) => {
     const getPosts = props.getPosts
     const currentUser= props.currentUser
- 
+    
+
+
     async function handleDelete(postIdDelete){
       const response = await fetch(`${BASE_URl}/api/${COHORT}/posts/${postIdDelete}`, {
         method: "DELETE",
@@ -26,14 +28,15 @@ const Posts = (props) => {
     
     return (
         <div id="posts">
-            {
-            getPosts.map((post, index) => {
-                return(currentUser && currentUser.data.username === post.author.username ? 
+            {getPosts.length ?   getPosts.map((post, index) => {
+              console.log(post)
+                return(post.isAuthor ? 
                 <div className='onePost' key={`post-${index}`}>
                     <h2>{post.title}</h2>
                     <p>{post.description}</p>
                     <p>Price: {post.price}</p>
-                    <p>Seller: {post.author.username}</p>
+                    {post.author ?
+                    <p>Seller: {post.author.username}</p>: null}
                     <p>Location: {post.location}</p>
                     <button onClick={() => handleDelete(post._id)}>Delete Post</button>
                 </div> :
@@ -44,12 +47,12 @@ const Posts = (props) => {
                     <p>Seller: {post.author.username}</p>
                     <p>Location: {post.location}</p>
                     {props.isLoggedIn ? 
-                    <NavLink to ="/sendMessage"><button>Message the Seller</button></NavLink> 
+                    <NavLink to ="/sendMessage"><button onClick={() => {props.setSinglePost(post._id)}}>Message the Seller</button></NavLink> 
                     : <></>}
                     
                 </div>)
             })
-        } </div>
+       : <div> Loading the Posts</div> } </div>
     );
 };
 

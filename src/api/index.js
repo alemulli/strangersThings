@@ -3,10 +3,17 @@ const COHORT = "2209-FTB-ET-WEB-FT"
 
 //get request for fetching all posts//
 
-export async function fetchPosts() {
+export async function fetchPosts(token) {
     try {
       const fetchedPosts = await fetch(
-        "https://strangers-things.herokuapp.com/api/2209-FTB-ET-WEB-FT/posts"
+        "https://strangers-things.herokuapp.com/api/2209-FTB-ET-WEB-FT/posts",{
+            method:"GET",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+              },
+
+        }
       );
       const posts = await fetchedPosts.json();
       const postsData = posts.data.posts;
@@ -105,17 +112,19 @@ export async function newPost(title,description,price,location,willDeliver){
 
 }
 
-//delete request for deleting a post//
-export async function deletePost(postId){
-    fetch(`${BASE_URl}/api/${COHORT}/posts/${postId}`, {
-  method: "DELETE",
-  headers: {
-    'Content-Type': 'application/json',
-    'Authorization': `Bearer ${localStorage.getItem('token')}`
-  }
-}).then(response => response.json())
-  .then(result => {
-    console.log(result);
-  })
-  .catch(console.error);
-}
+
+// export async function messagePost(content,postId) {
+//     fetch(`${BASE_URl}/api/${COHORT}/posts/${postId}/messages`, {
+//      method: "POST",
+//      headers: {
+//         'Content-Type': 'application/json',
+//         'Authorization': `Bearer ${localStorage.getItem('token')}` 
+//   },
+//   body: JSON.stringify({
+//     message: {
+//       content
+//     }
+//   })
+//     })
+
+// }

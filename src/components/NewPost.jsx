@@ -14,7 +14,7 @@ const setGetPosts = props.setGetPosts
         const location = e.target[3].value
         const willDeliver = e.target[4].checked
         const makeNewPost = await newPost(title,description,price,location,willDeliver)
-
+        setGetPosts([...props.getPosts, makeNewPost])
 
         navigate("/Posts")
 

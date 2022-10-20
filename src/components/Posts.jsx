@@ -1,5 +1,5 @@
 import React from "react";
-import { deletePost } from "../api";
+import { NavLink } from "react-router-dom";
 
 const BASE_URl = "https://strangers-things.herokuapp.com"
 const COHORT = "2209-FTB-ET-WEB-FT"
@@ -43,6 +43,7 @@ const Posts = (props) => {
                     <p>Price: {post.price}</p>
                     <p>Seller: {post.author.username}</p>
                     <p>Location: {post.location}</p>
+                    <NavLink to ="/sendMessage"><button>Message the Seller</button></NavLink>
                 </div>)
             })
         } </div>

@@ -43,7 +43,10 @@ const Posts = (props) => {
                     <p>Price: {post.price}</p>
                     <p>Seller: {post.author.username}</p>
                     <p>Location: {post.location}</p>
-                    <NavLink to ="/sendMessage"><button>Message the Seller</button></NavLink>
+                    {props.isLoggedIn ? 
+                    <NavLink to ="/sendMessage"><button>Message the Seller</button></NavLink> 
+                    : <></>}
+                    
                 </div>)
             })
         } </div>

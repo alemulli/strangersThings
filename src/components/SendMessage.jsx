@@ -20,14 +20,20 @@ const SendMessage = (props) => {
         console.log("the message form has been submitted")
     }
 
-	return (
-		<form className="sendMessage" onSubmit={handleSubmit}>
-			<label htmlFor="messageBox">What would you like to say?</label>
-			<input id="messageBox" type="text" required />
-			<button type="submit"> Submit </button>
-		</form>
-	)
 
+    return (
+        <>
+        {props.isLoggedIn ?
+		    <form className="sendMessage" onSubmit={handleSubmit}>
+			    <label htmlFor="messageBox">What would you like to say?</label>
+			    <input id="messageBox" type="text" required />
+			    <button type="submit"> Submit </button>
+		    </form>
+        : <h2>Please log in to send a message.</h2>
+        }
+
+</>
+)
 }
 
 export default SendMessage

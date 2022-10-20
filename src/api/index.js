@@ -111,20 +111,3 @@ export async function newPost(title,description,price,location,willDeliver){
     return result.data
 
 }
-
-
-// export async function messagePost(content,postId) {
-//     fetch(`${BASE_URl}/api/${COHORT}/posts/${postId}/messages`, {
-//      method: "POST",
-//      headers: {
-//         'Content-Type': 'application/json',
-//         'Authorization': `Bearer ${localStorage.getItem('token')}` 
-//   },
-//   body: JSON.stringify({
-//     message: {
-//       content
-//     }
-//   })
-//     })
-
-// }

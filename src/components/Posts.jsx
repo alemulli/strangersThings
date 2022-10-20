@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 
 const BASE_URl = "https://strangers-things.herokuapp.com"
@@ -29,7 +29,6 @@ const Posts = (props) => {
     return (
         <div id="posts">
             {getPosts.length ?   getPosts.map((post, index) => {
-              console.log(post)
                 return(post.isAuthor ? 
                 <div className='onePost' key={`post-${index}`}>
                     <h2>{post.title}</h2>
@@ -44,7 +43,8 @@ const Posts = (props) => {
                     <h2>{post.title}</h2>
                     <p>{post.description}</p>
                     <p>Price: {post.price}</p>
-                    <p>Seller: {post.author.username}</p>
+                    {post.author && post.author.username ?
+                    <p>Seller: {post.author.username}</p>: null}
                     <p>Location: {post.location}</p>
                     {props.isLoggedIn ? 
                     <NavLink to ="/sendMessage"><button onClick={() => {props.setSinglePost(post._id)}}>Message the Seller</button></NavLink> 

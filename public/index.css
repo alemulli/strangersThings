@@ -15,4 +15,18 @@ body {
   color: white;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding-left: 3%;
+  padding-right: 3%;
+}
+
+.navButtons {
+  display: flex;
+  gap: 5px;
+}
+
+.navButtons button {
+ background-color: #222222;
+ color: white; 
+ border: 1px white solid;
 }

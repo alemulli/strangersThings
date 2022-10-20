@@ -53,7 +53,7 @@ async function getCurrentUser () {
             <Route exact path='/' element={<Posts currentUser={currentUser} getPosts={ getPosts } setGetPosts={setGetPosts} />} />
             <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
             <Route path="/sendMessage" element = {<SendMessage isLoggedIn={isLoggedIn} singlePost={singlePost}/>} />
-            <Route path="/userHomePage" element = {<UserHomePage currentUser={currentUser} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} getCurrentUser={getCurrentUser}/>}/>
+            <Route path="/userHomePage" element = {<UserHomePage setGetPosts={setGetPosts} currentUser={currentUser} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setCurrentUser={setCurrentUser}/>}/>
           </Routes>
           </>
       </div>

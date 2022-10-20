@@ -22,6 +22,7 @@ const Navbar = (props) => {
     <div id="navbar">
         <h2>Stranger's Things</h2>
         {props.isLoggedIn ? <> 
+        <NavLink to ="/userHomePage"><button>Home</button></NavLink>
         <NavLink to ="/newPost"><button>New Post</button></NavLink>
         <NavLink to ="/posts"><button>Posts</button></NavLink>
         <button onClick={logout}>Logout</button>

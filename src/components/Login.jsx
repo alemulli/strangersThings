@@ -19,7 +19,7 @@ const Login = (props) =>{
     await props.setCurrentUser(currentUserData)
 
 
-    navigate("/Posts")
+    navigate("/userHomePage")
 }
 
 return ( 

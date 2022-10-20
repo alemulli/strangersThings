@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Navbar, Register, Posts, Login, NewPost, SendMessage } from './'
+import { Navbar, Register, Posts, Login, NewPost, SendMessage, UserHomePage } from './'
 import { 
   BrowserRouter as Router,
   Route,
@@ -51,6 +51,7 @@ async function getCurrentUser () {
             <Route exact path='/' element={<Posts currentUser={currentUser} getPosts={ getPosts } setGetPosts={setGetPosts} />} />
             <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
             <Route path="/sendMessage" element = {<SendMessage isLoggedIn={isLoggedIn}/>} />
+            <Route path="/userHomePage" element = {<UserHomePage currentUser={currentUser} isLoggedIn={isLoggedIn}/>}/>
           </Routes>
           </>
       </div>

@@ -1,8 +1,11 @@
 import React from "react"
 import {RegisterUser} from "../api"
+import { useNavigate } from "react-router-dom"
 
 
 const Register = (props) => {
+    const navigate = useNavigate()
+
    async function handleSubmit(event){
         event.preventDefault()
         const username = event.target[0].value
@@ -16,7 +19,7 @@ const Register = (props) => {
         } else {
             alert("Passwords do not match!")
         }
-    
+        navigate("/login")
     }
 
 return ( 

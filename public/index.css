@@ -31,4 +31,76 @@ body {
  border: 1px white solid;
  padding: 10px;
  border-radius: 5px;
-}
+ }
+
+ .navButtons button:hover{
+  animation: pulse 1s infinite;
+  background-color: white;
+  color: black;
+ }
+
+ @keyframes pulse {
+  0% {
+		transform: scale(0.8);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+	}
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+	}
+	100% {
+		transform: scale(0.8);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	}
+  
+ }
+
+
+ #searchBar{
+  margin: 1%;
+  padding: 1px;
+  display: flex;
+  justify-content: stretch;
+  }
+
+  #searchBar input {
+  flex-grow: 1;
+  padding: 5px;
+  }
+
+ #main{
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+ }
+
+ .Content-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch; 
+ }
+
+ #posts{
+  flex-grow: 1;
+  padding: 10px;
+  display: flex;
+  flex-flow: wrap;
+  gap: 10px;
+  justify-content: space-around;
+  align-items: center;
+ }
+
+ .onePost{
+  box-shadow:0px 2px 5px 0px rgba(0,0,0,0.14) , 0px 1px 10px 0px rgba(0,0,0,0.12) , 0px 2px 4px -1px rgba(0,0,0,0.2); 
+  padding: 10px;
+  width: 20%;
+  height: 300px;
+  overflow: auto;
+  word-wrap: break-word;
+  min-width: 250px;
+  
+  
+ }
+
+ 
+

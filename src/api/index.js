@@ -108,6 +108,11 @@ export async function newPost(title,description,price,location,willDeliver){
 
     const response = await fetch (`${BASE_URl}/api/${COHORT}/posts`,options)
     const result = await response.json()
+
+    if (result.error) {
+        console.log("an error")
+    }
+
     return result.data
 
 }

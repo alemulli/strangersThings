@@ -2,7 +2,6 @@ import React,{useEffect} from "react";
 
 const UserHomePage = (props) => {
     const currentUser = props.currentUser
-    const navigate = useNavigate()
 
     const BASE_URl = "https://strangers-things.herokuapp.com"
     const COHORT = "2209-FTB-ET-WEB-FT"

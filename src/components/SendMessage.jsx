@@ -26,6 +26,7 @@ const SendMessage = (props) => {
 		})
 		const data = await response.json();
 		console.log(data)
+        navigate("/Posts")
 	}
 	
     return (

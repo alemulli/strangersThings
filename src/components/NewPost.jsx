@@ -17,14 +17,15 @@ const setGetPosts = props.setGetPosts
         console.log(makeNewPost)
         setGetPosts([...props.getPosts, makeNewPost.post])
 
-        navigate("/Posts")
+        navigate("/")
 
     }
 
     return (
-        <>
+        <div className="submissionFormContainer">
         {props.isLoggedIn ?
-            <form className="NewPost" onSubmit={handleSubmit}>
+            <form className="submissionForm" onSubmit={handleSubmit}>
+                <h3>Make a New Post</h3>
                 <label htmlFor="title">Title: </label>
                 <input id="title" type='text' required />
                 <label htmlFor="description">Description: </label>
@@ -33,13 +34,15 @@ const setGetPosts = props.setGetPosts
                 <input id="price" type='text' required />
                 <label htmlFor="location">Location: </label>
                 <input id="location" type="text" />
+                <span>
                 <label htmlFor="willDeliver">Will Deliver: </label>
                 <input id="willDeliver" type='checkbox'/>
-                <button type="submit">Submit</button>
+                </span>
+                <button className="submitButton" type="submit">Submit</button>
             </form>
         : <h2>Please log in to make a posting.</h2>
         }
-        </>)
+        </div>)
     
 }
 

@@ -23,15 +23,22 @@ const Register = (props) => {
     }
 
 return ( 
-    <div className="box">
-        <form onSubmit={handleSubmit}>
+    <div className="submissionFormContainer">
+        <form className="submissionForm" onSubmit={handleSubmit}>
+            <h3>Register an Account</h3>
+            <span>
             <label htmlFor="username">Username: </label>
             <input id="username" type='text' required />
+            </span>
+            <span>
             <label htmlFor="password">Password: </label>
             <input id="password" type='password' required />
+            </span>
+            <span>
             <label htmlFor="Confirm password">Confirm Password: </label>
             <input id="Confirm password" type='password' required />
-            <button type="submit"> Submit </button>
+            </span>
+            <button className="submitButton" type="submit"> Submit </button>
         </form>
     </div>
 )

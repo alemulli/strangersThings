@@ -30,17 +30,18 @@ const SendMessage = (props) => {
 	}
 	
     return (
-        <>
+        <div className="submissionFormContainer">
         {props.isLoggedIn ?
-		    <form className="sendMessage" onSubmit={(e) => {handleMessage(singlePost, e)}}>
+		    <form className="submissionForm" onSubmit={(e) => {handleMessage(singlePost, e)}}>
+                <h3>Send a Message</h3>
 			    <label htmlFor="messageBox">What would you like to say?</label>
 			    <input id="messageBox" type="text" required />
-			    <button type="submit"> Submit </button>
+			    <button className="submitButton" type="submit"> Submit </button>
 		    </form>
         : <h2>Please log in to send a message.</h2>
         }
 
-</>
+</div>
 )
 }
 

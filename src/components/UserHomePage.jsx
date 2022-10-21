@@ -33,7 +33,7 @@ const UserHomePage = (props) => {
         <>
         {currentUser.data ?
         <>
-        <h2>Welcome {`${currentUser.data.username}`}!</h2>
+        <h2 className="welcome">Welcome {`${currentUser.data.username}`}!</h2>
         <div className='homepagecontent'>
         <div className="messageBox">
             <h3>Your Messages</h3>
@@ -54,8 +54,8 @@ const UserHomePage = (props) => {
                 <div key={`${user._id}`} className="aPost">
                     <h2>{`${user.title}`}</h2>
                     <p>{`${user.description}`}</p>
-                    <p>{`${user.price}`}</p>
-                    <p>{`${user.createdAt}`}</p>
+                    <p><b>Price: </b>{`${user.price}`}</p>
+                    <p><b>Posted on: </b>{`${user.createdAt}`}</p>
                     <button className="deleteButton" onClick={() => handleDelete(user._id)}>Delete Post</button>
                 </div>)
                 } })

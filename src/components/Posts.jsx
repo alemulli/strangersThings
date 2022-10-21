@@ -56,7 +56,7 @@ const Posts = (props) => {
                     <p><b>Seller:</b> {post.author.username}</p>: null}
                     <p><b>Location:</b> {post.location}</p>
                     {props.isLoggedIn ? 
-                    <NavLink to ="/sendMessage"><button onClick={() => {props.setSinglePost(post._id)}}>Message the Seller</button></NavLink> 
+                    <NavLink to ="/sendMessage"><button className="messageButton" onClick={() => {props.setSinglePost(post._id)}}>Message the Seller</button></NavLink> 
                     : <></>}
                     
                 </div>)

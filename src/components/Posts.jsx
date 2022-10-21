@@ -54,7 +54,7 @@ const Posts = (props) => {
                     {post.author ?
                     <p><b>Seller:</b> {post.author.username}</p>: null}
                     <p><b>Location:</b> {post.location}</p>
-                    <button onClick={() => handleDelete(post._id)}>Delete Post</button>
+                    <button className="deleteButton" onClick={() => handleDelete(post._id)}>Delete Post</button>
                 </div> :
                  <div className='onePost' key={`post-${index}`}>
                     <h2>{post.title}</h2>

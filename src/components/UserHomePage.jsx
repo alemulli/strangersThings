@@ -34,6 +34,7 @@ const UserHomePage = (props) => {
         {currentUser.data ?
         <>
         <h2>Welcome {`${currentUser.data.username}`}!</h2>
+        <div className='homepagecontent'>
         <div className="messageBox">
             <h3>Your Messages</h3>
             {currentUser.data.messages.length ? currentUser.data.messages.map((user) => {
@@ -51,15 +52,16 @@ const UserHomePage = (props) => {
                 if (user.active === true) {
                     return (
                 <div key={`${user._id}`} className="aPost">
-                    <p>{`${user.title}`}</p>
+                    <h2>{`${user.title}`}</h2>
                     <p>{`${user.description}`}</p>
                     <p>{`${user.price}`}</p>
                     <p>{`${user.createdAt}`}</p>
-                    <button onClick={() => handleDelete(user._id)}>Delete Post</button>
+                    <button className="deleteButton" onClick={() => handleDelete(user._id)}>Delete Post</button>
                 </div>)
                 } })
                              
                 : <p> You have no posts... </p> }
+        </div>
         </div>
         </>
         : <h2>Please log in to view this page.</h2>

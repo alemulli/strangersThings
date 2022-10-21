@@ -43,6 +43,8 @@ const Posts = (props) => {
                     <h2>{post.title}</h2>
                     <p>{post.description}</p>
                     <p>Price: {post.price}</p>
+
+                    {/* This is the line that for whatever reason isn't showing on Nelsons pull from git.  */}
                     {post.author && post.author.username ?
                     <p>Seller: {post.author.username}</p>: null}
                     <p>Location: {post.location}</p>

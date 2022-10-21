@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import SearchBar from "./SearchBar";
 
 const BASE_URl = "https://strangers-things.herokuapp.com"
 const COHORT = "2209-FTB-ET-WEB-FT"
@@ -7,6 +8,11 @@ const COHORT = "2209-FTB-ET-WEB-FT"
 const Posts = (props) => {
     const getPosts = props.getPosts
     const currentUser= props.currentUser
+    const searchInput = props.searchInput
+    const setSearchInput = props.setSearchInput
+    const setFilteredPost = props.setFilteredPost
+    const filteredPost = props.filteredPost
+    const setGetPosts = props.setGetPosts
     
 
 
@@ -25,29 +31,38 @@ const Posts = (props) => {
     }
 
     }
+
+   
+
+
+
     
+
+
     return (
+      <div className="Content-box">
+          <SearchBar getPosts={getPosts} searchInput={searchInput} setSearchInput={setSearchInput} setFilteredPost={setFilteredPost}/>
         <div id="posts">
+          {filteredPost.length ? setGetPosts(filteredPost) : null}
+          {console.log(filteredPost)}
             {getPosts.length ?   getPosts.map((post, index) => {
                 return(post.isAuthor ? 
                 <div className='onePost' key={`post-${index}`}>
                     <h2>{post.title}</h2>
                     <p>{post.description}</p>
-                    <p>Price: {post.price}</p>
+                    <p><b>Price: </b>{post.price}</p>
                     {post.author ?
-                    <p>Seller: {post.author.username}</p>: null}
-                    <p>Location: {post.location}</p>
+                    <p><b>Seller:</b> {post.author.username}</p>: null}
+                    <p><b>Location:</b> {post.location}</p>
                     <button onClick={() => handleDelete(post._id)}>Delete Post</button>
                 </div> :
                  <div className='onePost' key={`post-${index}`}>
                     <h2>{post.title}</h2>
                     <p>{post.description}</p>
-                    <p>Price: {post.price}</p>
-
-                    {/* This is the line that for whatever reason isn't showing on Nelsons pull from git.  */}
+                    <p><b>Price:</b> {post.price}</p>
                     {post.author && post.author.username ?
-                    <p>Seller: {post.author.username}</p>: null}
-                    <p>Location: {post.location}</p>
+                    <p><b>Seller:</b> {post.author.username}</p>: null}
+                    <p><b>Location:</b> {post.location}</p>
                     {props.isLoggedIn ? 
                     <NavLink to ="/sendMessage"><button onClick={() => {props.setSinglePost(post._id)}}>Message the Seller</button></NavLink> 
                     : <></>}
@@ -55,6 +70,7 @@ const Posts = (props) => {
                 </div>)
             })
        : <div> Loading the Posts</div> } </div>
+       </div>
     );
 };
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Navbar, Register, Posts, Login, NewPost, SendMessage, UserHomePage } from './'
+import { Navbar, Register, Posts, Login, NewPost, SendMessage, UserHomePage} from './'
 import { 
   BrowserRouter as Router,
   Route,
@@ -12,6 +12,8 @@ const Main = () => {
   const [getPosts, setGetPosts] = useState([]);
   const [currentUser, setCurrentUser] = useState(false)
   const [singlePost,setSinglePost] = useState('')
+  const [searchInput, setSearchInput] = useState('')
+  const [filteredPost,setFilteredPost] = useState([])
 
 async function getCurrentUser () {
   if (isLoggedIn){
@@ -21,7 +23,6 @@ async function getCurrentUser () {
   }
 
 }
-
   useEffect(() => {
     const loggedInUser = localStorage.getItem('token')
     if (loggedInUser) {
@@ -40,7 +41,12 @@ async function getCurrentUser () {
   }, []);
   
 
+  
 
+
+
+
+  
   return (
     <Router>
       <div id="main">
@@ -49,8 +55,8 @@ async function getCurrentUser () {
           <Routes>
             <Route path="/register" element={<Register />} />
             <Route path="/newPost" element={<NewPost isLoggedIn={isLoggedIn} getPosts={getPosts}setGetPosts={setGetPosts}/>} />
-            <Route path="/Posts" element={<Posts isLoggedIn={isLoggedIn} currentUser={currentUser} getPosts={ getPosts } setGetPosts={setGetPosts} setSinglePost={setSinglePost}/>} />
-            <Route exact path='/' element={<Posts currentUser={currentUser} getPosts={ getPosts } setGetPosts={setGetPosts} />} />
+            <Route path="/Posts" element={<Posts isLoggedIn={isLoggedIn} filteredPost={filteredPost} setFilteredPost={setFilteredPost} currentUser={currentUser} getPosts={ getPosts } setGetPosts={setGetPosts} setSinglePost={setSinglePost} searchInput={searchInput} setSearchInput={setSearchInput}/>} />
+            <Route exact path='/' element={<Posts isLoggedIn={isLoggedIn} filteredPost={filteredPost} setFilteredPost={setFilteredPost} currentUser={currentUser} getPosts={ getPosts } setGetPosts={setGetPosts} setSinglePost={setSinglePost} searchInput={searchInput} setSearchInput={setSearchInput} />} />
             <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
             <Route path="/sendMessage" element = {<SendMessage isLoggedIn={isLoggedIn} singlePost={singlePost}/>} />
             <Route path="/userHomePage" element = {<UserHomePage setGetPosts={setGetPosts} currentUser={currentUser} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setCurrentUser={setCurrentUser}/>}/>

@@ -7,6 +7,7 @@ const COHORT = "2209-FTB-ET-WEB-FT"
 
 const Posts = (props) => {
     const getPosts = props.getPosts
+    const posts = props.posts
     const currentUser= props.currentUser
     const searchInput = props.searchInput
     const setSearchInput = props.setSearchInput
@@ -32,20 +33,11 @@ const Posts = (props) => {
 
     }
 
-   
-
-
-
-    
-
-
     return (
       <div className="Content-box">
           <SearchBar getPosts={getPosts} searchInput={searchInput} setSearchInput={setSearchInput} setFilteredPost={setFilteredPost}/>
         <div id="posts">
-          {filteredPost.length ? setGetPosts(filteredPost) : null}
-          {console.log(filteredPost)}
-            {getPosts.length ?   getPosts.map((post, index) => {
+            {posts.length ?  posts.map((post, index) => {
                 return(post.isAuthor ? 
                 <div className='onePost' key={`post-${index}`}>
                     <h2>{post.title}</h2>

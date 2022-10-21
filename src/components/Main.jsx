@@ -55,8 +55,8 @@ async function getCurrentUser () {
           <Routes>
             <Route path="/register" element={<Register />} />
             <Route path="/newPost" element={<NewPost isLoggedIn={isLoggedIn} getPosts={getPosts}setGetPosts={setGetPosts}/>} />
-            <Route path="/Posts" element={<Posts isLoggedIn={isLoggedIn} filteredPost={filteredPost} setFilteredPost={setFilteredPost} currentUser={currentUser} getPosts={ getPosts } setGetPosts={setGetPosts} setSinglePost={setSinglePost} searchInput={searchInput} setSearchInput={setSearchInput}/>} />
-            <Route exact path='/' element={<Posts isLoggedIn={isLoggedIn} filteredPost={filteredPost} setFilteredPost={setFilteredPost} currentUser={currentUser} getPosts={ getPosts } setGetPosts={setGetPosts} setSinglePost={setSinglePost} searchInput={searchInput} setSearchInput={setSearchInput} />} />
+            <Route path="/Posts" element={<Posts posts={filteredPost.length ? filteredPost: getPosts}isLoggedIn={isLoggedIn} filteredPost={filteredPost} setFilteredPost={setFilteredPost} currentUser={currentUser} getPosts={ getPosts } setGetPosts={setGetPosts} setSinglePost={setSinglePost} searchInput={searchInput} setSearchInput={setSearchInput}/>} />
+            <Route exact path='/' element={<Posts posts={filteredPost.length ? filteredPost: getPosts}isLoggedIn={isLoggedIn} filteredPost={filteredPost} setFilteredPost={setFilteredPost} currentUser={currentUser} getPosts={ getPosts } setGetPosts={setGetPosts} setSinglePost={setSinglePost} searchInput={searchInput} setSearchInput={setSearchInput} />} />
             <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
             <Route path="/sendMessage" element = {<SendMessage isLoggedIn={isLoggedIn} singlePost={singlePost}/>} />
             <Route path="/userHomePage" element = {<UserHomePage setGetPosts={setGetPosts} currentUser={currentUser} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setCurrentUser={setCurrentUser}/>}/>

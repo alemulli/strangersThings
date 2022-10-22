@@ -1,18 +1,16 @@
 import React from "react"; 
 import { useNavigate } from 'react-router-dom'; 
-import { messagePost } from "../api";
-import Posts from "./Posts";
+
 const BASE_URl = "https://strangers-things.herokuapp.com"
 const COHORT = "2209-FTB-ET-WEB-FT"
 
 const SendMessage = (props) => {
 	const navigate = useNavigate()
 	const singlePost = props.singlePost
-	console.log(singlePost)
+
 	async function handleMessage (sendMessageID, e) {
 		e.preventDefault()
 		const content = e.target[0].value
-		console.log(content)
 		const response = await fetch(`${BASE_URl}/api/${COHORT}/posts/${sendMessageID}/messages`, {
 			method: "POST",
 			headers: {
@@ -25,7 +23,6 @@ const SendMessage = (props) => {
 			})
 		})
 		const data = await response.json();
-		console.log(data)
         navigate("/Posts")
 	}
 	
@@ -40,9 +37,8 @@ const SendMessage = (props) => {
 		    </form>
         : <h2>Please log in to send a message.</h2>
         }
-
-</div>
-)
+        </div>
+    )
 }
 
 export default SendMessage

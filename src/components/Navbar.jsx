@@ -15,8 +15,7 @@ const Navbar = (props) => {
  
     navigate("/Posts")
 
-}
-
+  }
 
   return (
     <div id="navbar">

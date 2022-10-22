@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React from "react";
 
 const UserHomePage = (props) => {
     const currentUser = props.currentUser
@@ -16,18 +16,13 @@ const UserHomePage = (props) => {
         });
         const data =  await response.json();
       if (data){
-        
-
-
         const filteredPosts = currentUser.data.posts.filter(user => user._id !== postIdDelete);
         const copy = {...currentUser}
         copy.data.posts = filteredPosts
         props.setCurrentUser(copy)
         props.setGetPosts(filteredPosts)
+        }
       }
-  
-      }
-    
     
     return (
         <>
@@ -68,7 +63,6 @@ const UserHomePage = (props) => {
         }
         </>
     )
-
 }
 
 export default UserHomePage

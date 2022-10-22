@@ -2,8 +2,7 @@ import React from "react"
 import {RegisterUser} from "../api"
 import { useNavigate } from "react-router-dom"
 
-
-const Register = (props) => {
+const Register = () => {
     const navigate = useNavigate()
 
    async function handleSubmit(event){
@@ -22,28 +21,26 @@ const Register = (props) => {
         navigate("/login")
     }
 
-return ( 
-    <div className="submissionFormContainer">
-        <form className="submissionForm" onSubmit={handleSubmit}>
-            <h3>Register an Account</h3>
-            <span>
-            <label htmlFor="username">Username: </label>
-            <input id="username" type='text' required />
-            </span>
-            <span>
-            <label htmlFor="password">Password: </label>
-            <input id="password" type='password' required />
-            </span>
-            <span>
-            <label htmlFor="Confirm password">Confirm Password: </label>
-            <input id="Confirm password" type='password' required />
-            </span>
-            <button className="submitButton" type="submit"> Submit </button>
-        </form>
-    </div>
-)
-
-
+    return ( 
+        <div className="submissionFormContainer">
+            <form className="submissionForm" onSubmit={handleSubmit}>
+                <h3>Register an Account</h3>
+                <span>
+                <label htmlFor="username">Username: </label>
+                <input id="username" type='text' required />
+                </span>
+                <span>
+                <label htmlFor="password">Password: </label>
+                <input id="password" type='password' required />
+                </span>
+                <span>
+                <label htmlFor="Confirm password">Confirm Password: </label>
+                <input id="Confirm password" type='password' required />
+                </span>
+                <button className="submitButton" type="submit"> Submit </button>
+            </form>
+        </div>
+    )
 }
 
 export default Register;

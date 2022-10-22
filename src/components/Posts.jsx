@@ -8,12 +8,9 @@ const COHORT = "2209-FTB-ET-WEB-FT"
 const Posts = (props) => {
     const getPosts = props.getPosts
     const posts = props.posts
-    const currentUser= props.currentUser
     const searchInput = props.searchInput
     const setSearchInput = props.setSearchInput
     const setFilteredPost = props.setFilteredPost
-    const filteredPost = props.filteredPost
-    const setGetPosts = props.setGetPosts
     
 
 

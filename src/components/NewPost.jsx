@@ -1,4 +1,3 @@
-import react,{ useEffect}from "react";
 import {newPost} from '../api'
 import {useNavigate} from 'react-router-dom';
 
@@ -14,11 +13,9 @@ const setGetPosts = props.setGetPosts
         const location = e.target[3].value
         const willDeliver = e.target[4].checked
         const makeNewPost = await newPost(title,description,price,location,willDeliver)
-        console.log(makeNewPost)
         setGetPosts([...props.getPosts, makeNewPost.post])
 
         navigate("/")
-
     }
 
     return (
@@ -42,11 +39,8 @@ const setGetPosts = props.setGetPosts
             </form>
         : <h2>Please log in to make a posting.</h2>
         }
-        </div>)
-    
+        </div>
+    )
 }
-
-
-
 
 export default NewPost

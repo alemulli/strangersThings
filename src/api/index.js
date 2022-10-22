@@ -6,7 +6,7 @@ const COHORT = "2209-FTB-ET-WEB-FT"
 export async function fetchPosts(token) {
     try {
       const fetchedPosts = await fetch(
-        "https://strangers-things.herokuapp.com/api/2209-FTB-ET-WEB-FT/posts",{
+        `${BASE_URl}/api/${COHORT}/posts`,{
             method:"GET",
             headers: {
                 'Content-Type': 'application/json',
@@ -21,7 +21,7 @@ export async function fetchPosts(token) {
     } catch (err) {
       console.error(err);
     }
-  }
+}
 
   //post request for new user//
 export async function RegisterUser(username,password){

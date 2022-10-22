@@ -15,14 +15,13 @@ const Main = () => {
   const [searchInput, setSearchInput] = useState('')
   const [filteredPost,setFilteredPost] = useState([])
 
-async function getCurrentUser () {
-  if (isLoggedIn){
-    const currentUserData = await currentUserInfo(isLoggedIn)
-   setCurrentUser(currentUserData)
-
+  async function getCurrentUser () {
+    if (isLoggedIn){
+      const currentUserData = await currentUserInfo(isLoggedIn)
+      setCurrentUser(currentUserData)
+    }
   }
 
-}
   useEffect(() => {
     const loggedInUser = localStorage.getItem('token')
     if (loggedInUser) {
@@ -40,13 +39,6 @@ async function getCurrentUser () {
     fetchData();
   }, []);
   
-
-  
-
-
-
-
-  
   return (
     <Router>
       <div id="main">
@@ -55,11 +47,11 @@ async function getCurrentUser () {
           <Routes>
             <Route path="/register" element={<Register />} />
             <Route path="/newPost" element={<NewPost isLoggedIn={isLoggedIn} getPosts={getPosts}setGetPosts={setGetPosts}/>} />
-            <Route path="/Posts" element={<Posts posts={filteredPost.length ? filteredPost: getPosts}isLoggedIn={isLoggedIn} filteredPost={filteredPost} setFilteredPost={setFilteredPost} currentUser={currentUser} getPosts={ getPosts } setGetPosts={setGetPosts} setSinglePost={setSinglePost} searchInput={searchInput} setSearchInput={setSearchInput}/>} />
-            <Route exact path='/' element={<Posts posts={filteredPost.length ? filteredPost: getPosts}isLoggedIn={isLoggedIn} filteredPost={filteredPost} setFilteredPost={setFilteredPost} currentUser={currentUser} getPosts={ getPosts } setGetPosts={setGetPosts} setSinglePost={setSinglePost} searchInput={searchInput} setSearchInput={setSearchInput} />} />
-            <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
+            <Route path="/Posts" element={<Posts posts={filteredPost.length ? filteredPost: getPosts}isLoggedIn={isLoggedIn} setFilteredPost={setFilteredPost} getPosts={ getPosts } setGetPosts={setGetPosts} setSinglePost={setSinglePost} searchInput={searchInput} setSearchInput={setSearchInput}/>} />
+            <Route exact path='/' element={<Posts posts={filteredPost.length ? filteredPost: getPosts}isLoggedIn={isLoggedIn} setFilteredPost={setFilteredPost} getPosts={ getPosts } setGetPosts={setGetPosts} setSinglePost={setSinglePost} searchInput={searchInput} setSearchInput={setSearchInput} />} />
+            <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} setCurrentUser={setCurrentUser}/>} />
             <Route path="/sendMessage" element = {<SendMessage isLoggedIn={isLoggedIn} singlePost={singlePost}/>} />
-            <Route path="/userHomePage" element = {<UserHomePage setGetPosts={setGetPosts} currentUser={currentUser} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setCurrentUser={setCurrentUser}/>}/>
+            <Route path="/userHomePage" element = {<UserHomePage setGetPosts={setGetPosts} currentUser={currentUser} setCurrentUser={setCurrentUser}/>}/>
           </Routes>
           </>
       </div>

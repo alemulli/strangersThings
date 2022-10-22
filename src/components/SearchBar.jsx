@@ -19,7 +19,6 @@ const SearchBar = (props) =>{
         setSearchInput(e.target.value)
     }
     
-
     return(
         <form id="searchBar">
             <input type="search"

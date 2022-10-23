@@ -1,0 +1,294 @@
+body {
+  font-family: 'Raleway', Arial, sans-serif;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  display: flex;
+  justify-items: stretch;
+  align-items: stretch;
+}
+
+#app{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: stretch;
+  align-content: stretch;
+}
+
+
+#navbar {
+  font-family: 'Poller One', Arial, sans-serif;
+  flex-grow: 1;
+  max-height: 10%;
+  min-height: 40px;
+  background-color: #222222;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  padding-right: 20px;
+}
+
+.navButtons {
+  display: flex;
+  gap: 5px;
+}
+
+.navButtons button {
+ background-color: #222222;
+ color: white; 
+ border: 1px white solid;
+ padding: 10px;
+ border-radius: 5px;
+ }
+
+ .navButtons button:hover{
+  animation: pulse 1s infinite;
+  background-color: white;
+  color: black;
+ }
+
+ @keyframes pulse {
+  0% {
+		transform: scale(0.8);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+	}
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+	}
+	100% {
+		transform: scale(0.8);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	}
+  
+ }
+
+
+ #searchBar{
+  margin: 5px;
+  padding: 1px;
+  display: flex;
+  height: 20px;
+  max-height: 20px;
+  width: 90%;
+  justify-content: center;
+  }
+
+  #searchBar input {
+  padding: 10px;
+  max-height: 20px;
+  min-height: 20px;
+  width: 90%;
+  }
+
+ #main{
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+ }
+
+ .Content-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch; 
+  align-items: center;
+ }
+
+ #posts{
+  flex-grow: 2;
+  padding: 10px;
+  display: flex;
+  flex-flow: wrap;
+  gap: 10px;
+  justify-content: space-around;
+  align-items: center;
+ }
+
+ .onePost{
+  box-shadow:0px 2px 5px 0px rgba(0,0,0,0.14) , 0px 1px 10px 0px rgba(0,0,0,0.12) , 0px 2px 4px -1px rgba(0,0,0,0.2); 
+  padding: 10px;
+  width: 20%;
+  height: 400px;
+  overflow: auto;
+  word-wrap: break-word;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+ }
+
+ .homepagecontent {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  margin: 12px;
+  max-width: 98vw;
+  max-height: 80vh;
+ }
+
+ .usersPosts {
+flex-grow: 4;
+border: black 2px solid;
+border-radius: 5px;
+max-height: 90%;
+overflow: auto;
+display: flex;
+flex-direction: column;
+ }
+
+ .messageBox {
+  flex-grow: 1;
+  border: black 2px solid;
+border-radius: 5px;
+display: flex;
+flex-direction: column;
+align-items: stretch;
+overflow: auto;
+max-height: 90%;
+ }
+
+ .messageBox h3 {
+  align-self: stretch;
+  display: flex;
+  justify-content: center;
+  border-bottom: black solid 1px;
+  margin: 0px;
+  padding: 10px;
+  background-color: #222222;
+  color: white;
+ }
+
+ .aMessage {
+background-color: rgb(225, 239, 255);
+;
+margin: 0;
+border: 1px solid transparent;
+padding: 5px;
+ }
+
+ .aMessage:nth-child(odd) {
+background-color: white;
+}
+
+.usersPosts h3 {
+  align-self: stretch;
+  display: flex;
+  justify-content: center;
+  border-bottom: black solid 1px;
+  margin: 0px;
+  padding: 10px;
+  background-color: #222222;
+  color: white;
+ }
+
+ .deleteButton {
+  border: red 1px solid;
+  background-color: white;
+  color: red;
+  border-radius: 5px;
+  padding: 10px;
+  max-width: 239px;
+  min-width: 239px;
+  align-self: center;
+ }
+
+ .aPost {
+  padding: 15px;
+ }
+
+ .onePost a {
+  align-self: center;
+ }
+
+ .messageButton {
+  border: rgb(113, 178, 252) 1px solid;
+  background-color: white;
+  color: rgb(113, 178, 252);
+  border-radius: 5px;
+  padding: 10px;
+  max-width: 239px;
+  min-width: 239px;
+ }
+
+ .deleteButton:hover {
+ transform: scale(1.1);
+ }
+
+ .messageButton:hover {
+  transform: scale(1.1);
+ }
+
+ .welcome {
+  align-self: center;
+ }
+
+.submissionForm input {
+  max-width: 90%;
+}
+
+.submissionForm span {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.submissionForm label {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.submissionForm input {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.submitButton {
+  border: rgb(49, 58, 179) 1px solid;
+  background-color: white;
+  color: rgb(49, 58, 179);
+  border-radius: 5px;
+  padding: 10px;
+  max-width: 239px;
+  min-width: 239px;
+  align-self: center;
+  margin: 5px;
+}
+
+.submissionForm h3 {
+  align-self: center;
+}
+
+.submissionFormContainer{
+  flex-grow: 1;
+  display: flex;
+  align-items: space-around;
+  justify-content: center;
+  min-height: 90%;
+}
+
+.submissionForm {
+  display: flex;
+  flex-direction: column;
+  box-shadow:0px 8px 17px 2px rgba(0,0,0,0.14) , 0px 3px 14px 2px rgba(0,0,0,0.12) , 0px 5px 5px -3px rgba(0,0,0,0.2);
+  max-width: 70%;
+  min-width: 600px;
+  align-self: center;
+  justify-self: center;
+  min-height: 20%;
+  max-height: 50%;
+  padding: 15px;
+}
+
+#description {
+  height: 100px;
+}
+
+.submitButton:hover {
+  transform: scale(1.1);
+}
